@@ -3,7 +3,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'Inconsolata': ['Inconsolata', 'monospace'],
+      'EB_Garamond': ['"EB Garamond"', 'serif']
+    }
   },
   plugins: [],
 }

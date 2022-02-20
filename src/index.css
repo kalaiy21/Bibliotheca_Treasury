@@ -3,3 +3,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+  background-color: #161619;
+  border-style: double;
+  border-width: 4px;
+  border-color: #8D795B;
+}
+
+body::-webkit-scrollbar{
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #8D795B ;
+}
+
+.nft_asset::-webkit-scrollbar{
+  width: .5rem;
+}
+
+.nft_asset::-webkit-scrollbar-thumb{
+  background-color: #303033;
+  border-radius: 30px;
+}
+
+.nft_asset_imgs::-webkit-scrollbar{
+  width: .5rem;
+}
+
+.nft_asset_imgs::-webkit-scrollbar-thumb{
+  background-color: #303033;
+  border-radius: 30px;
+}
