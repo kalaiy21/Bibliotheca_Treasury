@@ -56,7 +56,7 @@ const nft_assets = [
 function App() {
   return (
     <div className="py-[4rem] px-[8rem]">
-      <h1 className="text-center text-white sm:text-8xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
+      <h1 className="text-center text-white xl:text-8xl lg:text-6xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
         Bibliotheca <span className="text-[#8D795B] inline-block">Treasury</span>
       </h1>
 
