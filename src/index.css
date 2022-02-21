@@ -3,3 +3,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+ .parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    border: 2px solid #8D795B;
+    background-color: #141518;
+    } 
+
+    /* .App{
+      position: relative;
+
+    }
+    .a{
+      font-family: sans-serif;
+      text-align: center;
+      height: 16rem;
+      width: 29rem;
+      border-style: solid;
+      border-color:blue;
+      position: absolute;
+      left:-5rem;
+    }
+
+    .b{
+      position: absolute;
+      top: .5rem;
+      height: 15rem;
+      width: 30rem;
+      border-style: solid;;
+      border-color: blue;
+    } */
