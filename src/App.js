@@ -78,9 +78,13 @@ function App() {
       <div className="mb-[2rem]">
 
         <TotalAssets></TotalAssets>
+        <div className="h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
+
         <Tablehead></Tablehead>
-        <div className="h-[30rem] overflow-auto overflow-x-hidden scrolling">
-          {TableRowsData.map( TableRowData => <TableRow key={TableRowData.id} id={TableRowData.id} token={TableRowData.token} usdValue={TableRowData.usdValue} percentage={TableRowData.percentage}tokenValue={TableRowData.tokenValue}/>)}
+        
+        {TableRowsData.map( TableRowData => <TableRow key={TableRowData.id} id={TableRowData.id} token={TableRowData.token} usdValue={TableRowData.usdValue} percentage={TableRowData.percentage}tokenValue={TableRowData.tokenValue}/>)}
+        
+
         </div>
       </div>
 
