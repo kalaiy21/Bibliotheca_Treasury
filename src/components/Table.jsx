@@ -1,7 +1,7 @@
 import React from "react";
 
 function Tablehead(){
-    return(<div className="sticky mx-10 grid grid-cols-5  bg-[#141518] text-center">
+    return(<div className="sticky mx-10 grid grid-cols-5  bg-[#141518] text-center top-0">
     <p className="text-[#FBFBFB] text-center p-3 font-Inconsolata text-2xl font-light tracking-[3px]">id</p>
     
     <p className=" text-[#FBFBFB] text-center p-3 font-Inconsolata text-2xl font-light tracking-[3px]">token</p>

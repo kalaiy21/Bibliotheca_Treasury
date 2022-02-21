@@ -75,19 +75,13 @@ function App() {
       
       {/* insert the table here */}
 
-      <div className="mb-[2rem]">
-
+      <div className="mb-[2rem] border-double border-4 border-[#8D795B] py-[2rem] ">
         <TotalAssets></TotalAssets>
         <div className="h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
-
         <Tablehead></Tablehead>
-        
         {TableRowsData.map( TableRowData => <TableRow key={TableRowData.id} id={TableRowData.id} token={TableRowData.token} usdValue={TableRowData.usdValue} percentage={TableRowData.percentage}tokenValue={TableRowData.tokenValue}/>)}
-        
-
         </div>
       </div>
-
 
       <div className="text-white">
         <h1 className=" text-3xl font-EB_Garamond tracking-[2px] mb-[2rem]">NFT Assets</h1>
