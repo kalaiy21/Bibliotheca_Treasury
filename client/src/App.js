@@ -8,7 +8,6 @@ import right_arrow_icon from "./resources/arrow-right.png"
 import Address from "./components/address";
 import Nft_list from "./components/Nft_list";
 import map from "./resources/map.png";
-import axios from 'axios';
 
 const TableRowsData=[
   {id:1,token:"ETH",usdValue:"$315,1512",percentage:"33.5%",tokenValue:"151,6511"},
