@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Tablehead from "./components/Table";
 import TableRow from "./components/TableRow";
 import TotalAssets from "./components/TotalAssets";
@@ -20,10 +20,6 @@ const TableRowsData=[
   {id:8,token:"USDC",usdValue:"$802,511,69",percentage:"35.5%",tokenValue:"954,632,08"},
   {id:9,token:"USDC",usdValue:"$802,511,69",percentage:"35.5%",tokenValue:"954,632,08"},
   {id:10,token:"USDC",usdValue:"$802,511,69",percentage:"35.5%",tokenValue:"954,632,08"},
-
-
-
-  
 ]
 
         
@@ -53,7 +49,35 @@ const nft_assets = [
   {id:81,name:"Roadmap",number:"26"}
 ]
 
+// const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+
 function App() {
+
+  const[nfts,setnfts] = useState([])
+  const[table,settable] = useState([])
+
+  useEffect(() => {
+    const getnft = async() => {
+      const response = await fetch('/nftsapi')
+      const data = await response.json()
+      
+      setnfts(data)
+    }
+
+    const gettable = async() => {
+      const response = await fetch('/tableapi')
+      const data = await response.json()
+      
+      settable(data)
+    }
+    gettable()
+    getnft()
+  },[])
+
+  // console.log(nfts);
+  console.log(table);
+
+  
   return (
     <div className="py-[4rem] px-[8rem]">
       <h1 className="text-center text-white xl:text-8xl lg:text-6xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
