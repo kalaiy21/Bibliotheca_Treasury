@@ -7,7 +7,7 @@ import logo from "./resources/lords-icon.png"
 import right_arrow_icon from "./resources/arrow-right.png"
 import Address from "./components/address";
 import Nft_list from "./components/Nft_list";
-import map from "./resources/map.png";
+import Nft_img from "./components/Nft_img";
 
 const TableRowsData=[
   {id:1,token:"ETH",usdValue:"$315,1512",percentage:"33.5%",tokenValue:"151,6511"},
@@ -26,7 +26,7 @@ const TableRowsData=[
 
 
 
-const address = "0xef3155450bAA054ffE7950509CE2042613EE6586"
+const walletaddress = "0xef3155450bAA054ffE7950509CE2042613EE6586"
 
 // reference nfs names and count for mapping 
 
@@ -49,25 +49,24 @@ const nft_assets = [
   {id:81,name:"Roadmap",number:"26"}
 ]
 
-// const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
 function App() {
 
-  const[nfts,setnfts] = useState([])
-  const[table,settable] = useState([])
+  const[nfts,setnfts] = useState([]) // for nft img array of obj
+  const[table,settable] = useState([]) // for table array of obj
 
   useEffect(() => {
     const getnft = async() => {
       const response = await fetch('/nftsapi')
       const data = await response.json()
-      console.log(data); //logging nfts data
+      // console.log(data); //logging nfts data
       setnfts(data)
     }
 
     const gettable = async() => {
       const response = await fetch('/tableapi')
       const data = await response.json()
-      console.log(data); //logging table data
+      // console.log(data); //logging table data
       settable(data)
     }
     gettable()
@@ -91,7 +90,7 @@ function App() {
         <img className="w-[27rem]" src={logo} alt="treasury image" />
       </div>
 
-      <Address address={address} />
+      <Address address={walletaddress} />
       
       {/* insert the table here */}
 
@@ -122,14 +121,11 @@ function App() {
             </div>
 
           </div>
-          <div className="h-full p-[2rem] nft_asset_imgs">
+          <div className="h-full p-[2rem] nft_asset_imgs grid grid-cols-4 overflow-y-scroll gap-x-[2rem] gap-y-[1rem]">
 
             {/* inside this div where nfs assets img will placed */}
 
-            <div className="flex flex-col w-[200px] h-[210px] items-center">
-              <img src={map} alt="map" className="mb-[.5rem]" />
-              <p className="font-Inconsolata text-sm">Assassin</p>
-            </div>
+            {nfts.map(nft =><Nft_img key={nft.id} url={nft.url} name={nft.name} />)}
 
           </div>
         </div>

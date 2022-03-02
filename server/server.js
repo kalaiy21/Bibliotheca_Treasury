@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const destruct = require('./nftsdestruct');
 
 const app = express();
 
@@ -14,8 +15,8 @@ app.get('/nftsapi',async function (req,res) {
     axios.get(url)
       .then(function (response) {
         const data = response.data
-        console.log(data)
-        res.send(data)
+        
+        res.send(destruct(data))
       })
       .catch(function (error) {
         console.log(error);
