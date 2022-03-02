@@ -25,7 +25,7 @@ app.get('/nftsapi',async function (req,res) {
 app.get('/tableapi',async function (req,res) {
 
     const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
-    const apikey = 'EK-pYffx-aL5xsQC-o7WsN'
+    const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
     const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
     axios.get(url)

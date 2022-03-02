@@ -8,6 +8,7 @@ import right_arrow_icon from "./resources/arrow-right.png"
 import Address from "./components/address";
 import Nft_list from "./components/Nft_list";
 import map from "./resources/map.png";
+import axios from 'axios';
 
 const TableRowsData=[
   {id:1,token:"ETH",usdValue:"$315,1512",percentage:"33.5%",tokenValue:"151,6511"},
@@ -60,24 +61,20 @@ function App() {
     const getnft = async() => {
       const response = await fetch('/nftsapi')
       const data = await response.json()
-      
+      console.log(data); //logging nfts data
       setnfts(data)
     }
 
     const gettable = async() => {
       const response = await fetch('/tableapi')
       const data = await response.json()
-      
+      console.log(data); //logging table data
       settable(data)
     }
     gettable()
     getnft()
   },[])
 
-  // console.log(nfts);
-  console.log(table);
-
-  
   return (
     <div className="py-[4rem] px-[8rem]">
       <h1 className="text-center text-white xl:text-8xl lg:text-6xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
