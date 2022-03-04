@@ -30,29 +30,30 @@ const walletaddress = "0xef3155450bAA054ffE7950509CE2042613EE6586"
 
 // reference nfs names and count for mapping 
 
-const nft_assets = [                            
-  {id:1,name:"Realms",number:"25"},
-  {id:2,name:"Flipflop",number:"5"},
-  {id:3,name:"Assassin",number:"2"},
-  {id:4,name:"Creed",number:"10"},
-  {id:5,name:"Pubg",number:"1"},
-  {id:6,name:"Bitcoin",number:"6"},
-  {id:7,name:"Niftbees",number:"150"},
-  {id:8,name:"Roadmap",number:"26"},
-  {id:9,name:"Realms",number:"25"},
-  {id:10,name:"Flipflop",number:"5"},
-  {id:13,name:"Assassin",number:"2"},
-  {id:41,name:"Creed",number:"10"},
-  {id:51,name:"Pubg",number:"1"},
-  {id:61,name:"Bitcoin",number:"6"},
-  {id:71,name:"Niftbees",number:"150"},
-  {id:81,name:"Roadmap",number:"26"}
-]
+// const nft_assets = [                            
+//   {id:1,name:"Realms",number:"25"},
+//   {id:2,name:"Flipflop",number:"5"},
+//   {id:3,name:"Assassin",number:"2"},
+//   {id:4,name:"Creed",number:"10"},
+//   {id:5,name:"Pubg",number:"1"},
+//   {id:6,name:"Bitcoin",number:"6"},
+//   {id:7,name:"Niftbees",number:"150"},
+//   {id:8,name:"Roadmap",number:"26"},
+//   {id:9,name:"Realms",number:"25"},
+//   {id:10,name:"Flipflop",number:"5"},
+//   {id:13,name:"Assassin",number:"2"},
+//   {id:41,name:"Creed",number:"10"},
+//   {id:51,name:"Pubg",number:"1"},
+//   {id:61,name:"Bitcoin",number:"6"},
+//   {id:71,name:"Niftbees",number:"150"},
+//   {id:81,name:"Roadmap",number:"26"}
+// ]
 
 
 function App() {
 
   const[nfts,setnfts] = useState([]) // for nft img array of obj
+  const[nftlist,setnftlist] = useState([])
   const[table,settable] = useState([]) // for table array of obj
 
   useEffect(() => {
@@ -63,6 +64,13 @@ function App() {
       setnfts(data)
     }
 
+    const getnftlist = async() => {
+      const response = await fetch('/nftslistapi')
+      const data = await response.json()
+      // console.log(data); //logging nftlist data
+      setnftlist(data)
+    }
+
     const gettable = async() => {
       const response = await fetch('/tableapi')
       const data = await response.json()
@@ -71,6 +79,7 @@ function App() {
     }
     gettable()
     getnft()
+    getnftlist()
   },[])
 
   return (
@@ -116,7 +125,7 @@ function App() {
                 <img src={right_arrow_icon} alt="icon" className="w-6 h-6" /> 
               </div>
               
-              {nft_assets.map( asset => <Nft_list key={asset.id} content={asset.name} number={asset.number} />)}
+              {nftlist.map( asset => <Nft_list key={asset.name} content={asset.name} number={asset.count} />)}
 
             </div>
 

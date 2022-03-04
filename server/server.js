@@ -1,8 +1,12 @@
 const express = require('express');
 const axios = require('axios');
-const destruct = require('./nftsdestruct');
-
+const {destruct,destructList}  = require('./nftsdestruct');
+const Moralis  = require('moralis/node');
 const app = express();
+
+const serverUrl = "https://sawrxn3is56r.usemoralis.com:2053/server";
+const appId = "OyMwhQ8JhFzPgsKc8QZ1aPQWxZhtx3Bft87gqHG5";
+Moralis.start({ serverUrl, appId });
 
 
 
@@ -23,6 +27,17 @@ app.get('/nftsapi',async function (req,res) {
       })
 })
 
+app.get('/nftslistapi',async function (req,res) {
+
+  const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+
+  const options = { chain: 'ETH', address: walletaddress };
+  const data = await Moralis.Web3API.account.getNFTs(options);
+  console.log(data);
+  res.send(destructList(data))
+  
+})
+
 app.get('/tableapi',async function (req,res) {
 
     const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
@@ -32,7 +47,7 @@ app.get('/tableapi',async function (req,res) {
     axios.get(url)
       .then(function (response) {
         const data = response.data
-        console.log(data)
+        // console.log(data)
         res.send(data)
       })
       .catch(function (error) {
