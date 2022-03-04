@@ -1,6 +1,8 @@
 
 function destruct(result) {
     ({total,items} = result)
+    // console.log(items);
+
     nfts = []
     items.forEach(item => {
         ({id,meta} = item)

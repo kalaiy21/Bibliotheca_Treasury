@@ -98,7 +98,7 @@ function App() {
         <TotalAssets></TotalAssets>
         <div className="h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
         <Tablehead></Tablehead>
-        {TableRowsData.map( TableRowData => <TableRow key={TableRowData.id} id={TableRowData.id} token={TableRowData.token} usdValue={TableRowData.usdValue} percentage={TableRowData.percentage}tokenValue={TableRowData.tokenValue}/>)}
+        {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}
         </div>
       </div>
 

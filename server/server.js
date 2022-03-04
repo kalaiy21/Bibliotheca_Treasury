@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const destruct = require('./nftsdestruct');
-
+const TableDes = require('./tableDestructure');
 const app = express();
 
 
@@ -32,8 +32,8 @@ app.get('/tableapi',async function (req,res) {
     axios.get(url)
       .then(function (response) {
         const data = response.data
-        console.log(data)
-        res.send(data)
+        // console.log(data)
+        res.send(TableDes(data))
       })
       .catch(function (error) {
         console.log(error);
