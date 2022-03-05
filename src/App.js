@@ -134,7 +134,7 @@ function App() {
 
             {/* inside this div where nfs assets img will placed */}
 
-            {nfts.map(nft =><Nft_img key={nft.id} url={nft.url} name={nft.name} />)}
+            {nfts.map(nft =><Nft_img key={nft.tokenid} url={nft.imgurl} name={nft.nftname} />)}
 
           </div>
         </div>

@@ -1,23 +1,21 @@
-const { list } = require("postcss");
 
-
-function destruct(data) {
-    ({total,items} = data)
-    nfts = []
-    items.forEach(item => {
-        ({id,meta} = item)
-        const nftname = meta.name
-        const url = meta.content[0].url
-        const ids = id
-        nft = {}
-        nft.id = ids
-        nft.name = nftname
-        nft.url = url
-        nfts.push(nft)
-    });
-    // console.log(nfts);
-    return nfts
-}
+// function destruct(data) {                        old nft destruct function
+//     ({total,items} = data)
+//     nfts = []
+//     items.forEach(item => {
+//         ({id,meta} = item)
+//         const nftname = meta.name
+//         const url = meta.content[0].url
+//         const ids = id
+//         nft = {}
+//         nft.id = ids
+//         nft.name = nftname
+//         nft.url = url
+//         nfts.push(nft)
+//     });
+//     // console.log(nfts);
+//     return nfts
+// }
 
 function destructList(data) {
     ({result} = data)
@@ -37,16 +35,6 @@ function destructList(data) {
 
     result.forEach(res =>{
         tokenid = res.name
-        
-        // count = 0;
-        // result.forEach(res =>{
-        //     tokenname = res.name
-        //     if(tokenid === tokenname){
-        //         count++
-        //     }
-        // })
-        // lists.name = tokenid
-        // lists.count = count
         listnames.push(tokenid)
     })
     
@@ -66,5 +54,40 @@ function destructList(data) {
     
 }
 
-module.exports =  {destruct,destructList} 
+function nftitems(data) {
+    result = data.result
+    arr= []
+    result.forEach(res =>{
+        token_id = res.token_id
+        token_name = res.name;
+        meta = res.metadata
+        nft = {}
+        obj = JSON.parse(meta)
+        nft.nftname = obj.name
+        nft.tokenid = token_id
+        nft.tokenname = token_name
+        arr.push(nft)
+    })
+    return arr
+}
+
+
+function destruct(nftitem,data) {
+    results = data.items
+    newarr= []
+    nftitem.forEach(nft=>{
+        token_id=nft.tokenid
+        results.forEach(result=>{
+            restok = result.tokenId
+            if(token_id === restok){
+                url = result.meta.content[0].url
+                nft.imgurl = url
+                newarr.push(nft)
+            }
+        })
+    })
+    return nftitem
+}
+
+module.exports =  {destruct,destructList,nftitems} 
 
