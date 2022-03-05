@@ -14,20 +14,6 @@ Moralis.start({ serverUrl, appId });
 
 const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
-app.get('/oldnftsapi',async function (req,res) {
-
-
-    const url = `https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM:${walletaddress}`
-
-    axios.get(url)
-      .then(function (response) {
-        const data = response.data
-        res.send(destruct(data))
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-})
 
 app.get('/nftsapi',async function (req,res) {
 
@@ -54,7 +40,6 @@ app.get('/nftslistapi',async function (req,res) {
 
   const options = { chain: 'ETH', address: walletaddress };
   const data = await Moralis.Web3API.account.getNFTs(options);
-  console.log(data);
   res.send(destructList(data))
   
 })

@@ -10,7 +10,6 @@ function tableDestruct(tableData){
     //Remaining Tokens
 
     ({address,ETH,countTxs,tokens} = tableData);
-    // console.log(tokens);
     tokArr=[]
 
     let total=0;
@@ -36,8 +35,7 @@ function tableDestruct(tableData){
          
          percentage=Math.round((inUSD/total)*100).toFixed(1);  
 
-        // console.log(Balance);
-        // console.log(Balance2);
+        
         tok={}
         tok.name=tokenName
         tok.balance=Math.round(Balance).toFixed(1)
@@ -61,8 +59,7 @@ function tableDestruct(tableData){
     
 
     return tokArr;
-    // console.log(total);
-    // console.log(balance);
+  
 
 
 
