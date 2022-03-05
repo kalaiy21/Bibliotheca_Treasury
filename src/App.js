@@ -85,7 +85,7 @@ function App() {
   return (
     <div className="py-[4rem] px-[8rem]">
       <h1 className="text-center text-white xl:text-8xl lg:text-6xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
-        Bibliotheca <span className="text-[#8D795B] inline-block">Treasury</span>
+        BibliothecaDAO <span className="text-[#8D795B] inline-block">Treasury</span>
       </h1>
 
       <div className="font-Inconsolata flex items-center justify-between mb-[5rem]">
@@ -105,7 +105,7 @@ function App() {
 
       <div className="mb-[2rem] border-double border-4 border-[#8D795B] py-[2rem] ">
         <TotalAssets></TotalAssets>
-        <div className="h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
+        <div className="max-h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
         <Tablehead></Tablehead>
         {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}
         </div>

@@ -5,7 +5,8 @@ function tableDestruct(tableData){
     const ethPrice=tableData.ETH.price.rate;
     const ethBalance=tableData.ETH.balance;
     const ethInUSD=ethPrice*ethBalance; 
-
+    // let ethInusd = new Intl.NumberFormat('en-US');
+    // let output = ethInusd.format(ethINUSD);
     //Remaining Tokens
 
     ({address,ETH,countTxs,tokens} = tableData);
@@ -39,8 +40,8 @@ function tableDestruct(tableData){
         // console.log(Balance2);
         tok={}
         tok.name=tokenName
-        tok.balance=Balance
-        tok.inUsd=inUSD
+        tok.balance=Math.round(Balance).toFixed(1)
+        tok.inUsd=Math.round(inUSD).toFixed(1)
         tokArr.push(tok)
 
         tok.percent=percentage
@@ -48,8 +49,8 @@ function tableDestruct(tableData){
     });
     tokEth={}
     tokEth.name="ETH"
-    tokEth.balance=ethBalance
-    tokEth.inUsd=ethInUSD
+    tokEth.balance=Math.round(ethBalance).toFixed(1)
+    tokEth.inUsd=Math.round(ethInUSD).toFixed(1)
     const ethPercentage=Math.round((ethInUSD/total)*100).toFixed(1);
     tokEth.percent=ethPercentage
     tokArr.push(tokEth)

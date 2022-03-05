@@ -1,3 +1,4 @@
+
 const express = require('express');
 const axios = require('axios');
 const TableDes = require('./tableDestructure');
@@ -11,10 +12,10 @@ const appId = "OyMwhQ8JhFzPgsKc8QZ1aPQWxZhtx3Bft87gqHG5";
 Moralis.start({ serverUrl, appId });
 
 
+const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
 app.get('/oldnftsapi',async function (req,res) {
 
-    const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
     const url = `https://api.rarible.org/v0.1/items/byOwner?owner=ETHEREUM:${walletaddress}`
 
@@ -30,7 +31,6 @@ app.get('/oldnftsapi',async function (req,res) {
 
 app.get('/nftsapi',async function (req,res) {
 
-  const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
   const options = { chain: 'ETH', address: walletaddress };
   const data = await Moralis.Web3API.account.getNFTs(options);
@@ -50,7 +50,7 @@ app.get('/nftsapi',async function (req,res) {
 
 app.get('/nftslistapi',async function (req,res) {
 
-  const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+  // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
   const options = { chain: 'ETH', address: walletaddress };
   const data = await Moralis.Web3API.account.getNFTs(options);
@@ -61,7 +61,8 @@ app.get('/nftslistapi',async function (req,res) {
 
 app.get('/tableapi',async function (req,res) {
 
-    const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+    // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+
     const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
     const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
