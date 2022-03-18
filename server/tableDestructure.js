@@ -1,4 +1,14 @@
 let total=0;
+
+var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+  
 function tableDestruct(tableData){
 
     // Eth calcultion
@@ -6,7 +16,8 @@ function tableDestruct(tableData){
     const ethBalance=tableData.ETH.balance;
     const ethInUSD=ethPrice*ethBalance; 
     // let ethInusd = new Intl.NumberFormat('en-US');
-    // let output = ethInusd.format(ethINUSD);
+    // let output = ethInusd.format(ethInusd);
+    // ethInusd=output.format(ethInusd);
     //Remaining Tokens
 
     ({address,ETH,countTxs,tokens} = tableData);
@@ -33,13 +44,14 @@ function tableDestruct(tableData){
          RateOfCoin=tokenInfo.price.rate
          inUSD=Balance*RateOfCoin;
          
-         percentage=Math.round((inUSD/total)*100).toFixed(1);  
+         percentage=Math.round((inUSD/total)*100).toFixed(2);  
 
         
         tok={}
-        tok.name=tokenName
-        tok.balance=Math.round(Balance).toFixed(1)
-        tok.inUsd=Math.round(inUSD).toFixed(1)
+        tok.name=tokenName;
+
+        tok.balance=formatter.format(Math.round(Balance).toFixed(2))
+        tok.inUsd=formatter.format(Math.round(inUSD).toFixed(2))
         tokArr.push(tok)
 
         tok.percent=percentage
@@ -47,22 +59,17 @@ function tableDestruct(tableData){
     });
     tokEth={}
     tokEth.name="ETH"
-    tokEth.balance=Math.round(ethBalance).toFixed(1)
-    tokEth.inUsd=Math.round(ethInUSD).toFixed(1)
-    const ethPercentage=Math.round((ethInUSD/total)*100).toFixed(1);
+    tokEth.balance=formatter.format(Math.round(ethBalance).toFixed(2))
+    tokEth.inUsd=formatter.format(Math.round(ethInUSD).toFixed(2))
+    const ethPercentage=Math.round((ethInUSD/total)*100).toFixed(2);
     tokEth.percent=ethPercentage
     tokArr.push(tokEth)
 
     tokArr.sort((a, b) => {
         return b.percent - a.percent;
     });
-    
-
     return tokArr;
   
-
-
-
 }
 
 module.exports=tableDestruct;
