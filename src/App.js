@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Tablehead from "./components/Table";
 import TableRow from "./components/TableRow";
 import TotalAssets from "./components/TotalAssets";
-import logo from "./resources/Treasury-modified.png"
+import logo from "./resources/Treasury.jpg"
 import right_arrow_icon from "./resources/arrow-right.png"
 import Address from "./components/address";
 import Nft_list from "./components/Nft_list";
@@ -55,7 +55,9 @@ function App() {
 
       <div className="font-Inconsolata flex items-center justify-between mb-[5rem]">
         <div className="text-white text-[1.5rem] font-light w-[60%] tracking-[2px]">
-        The treasury funds managed by community members will be used to enable the DAO's mission, vision and goals. 
+        The treasury funds managed by community members will be used to enable the DAO's mission, vision and goals.
+
+ 
         <p className="text-[#8D795B] my-[1rem] text-[2.3rem]">Principles :</p>
         <ul className="list-disc pl-[3rem]">
           <li>clarity on allocation and distribution of funds</li>
@@ -63,7 +65,7 @@ function App() {
           <li>real-time dashboard of state of the treasury</li>
         </ul>
         </div>
-        <img className="w-[27rem] rounded-[100%]" src={logo} alt="treasury image" />
+        <img className="w-[27rem] h-[25rem]" src={logo} alt="treasury image" />
       </div>
 
       <Address address={walletaddress} />

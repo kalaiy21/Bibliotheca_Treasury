@@ -7,7 +7,7 @@ function TotalAssets(){
         <div className="flex items-center gap-x-[2rem]">
             <p className="text-white text-[1.5rem] font-light font-Inconsolate text-center">Total assets</p>
             <div className="border-2 bg-[#202023] border-[#8D795B] p-2 rounded-[10px]">
-                <p className= "text-white text-[1.5rem] font-light font-Inconsolate text-center">$ 421,958.0</p>
+                <p className= "text-white text-[1.5rem] font-light font-Inconsolate text-center">$ 543,720.0</p>
             </div>
         </div>
     </div>
