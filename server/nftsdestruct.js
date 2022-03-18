@@ -55,11 +55,19 @@ function nftitems(data) {
     return arr
 }
 
+let nfts = null
+
+function FilterByClickList(listclicked) {
+    let filteredList = nfts.filter(nft => nft.tokenname == listclicked)
+
+    return filteredList
+}
 
 function destruct(nftitem,data) {
     results = data.items
+    nfts = nftitem
     newarr= []
-    nftitem.forEach(nft=>{
+    nfts.forEach(nft=>{
         token_id=nft.tokenid
         results.forEach(result=>{
             restok = result.tokenId
@@ -70,8 +78,8 @@ function destruct(nftitem,data) {
             }
         })
     })
-    return nftitem
+    return nfts
 }
 
-module.exports =  {destruct,destructList,nftitems} 
+module.exports =  {destruct,destructList,nftitems,FilterByClickList} 
 

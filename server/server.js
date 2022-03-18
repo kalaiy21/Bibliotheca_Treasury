@@ -2,10 +2,16 @@
 const express = require('express');
 const axios = require('axios');
 const TableDes = require('./tableDestructure');
+const  bodyParser = require('body-parser');
 
-const {destruct,destructList,nftitems}  = require('./nftsdestruct');
+const {destruct,destructList,nftitems,FilterByClickList}  = require('./nftsdestruct');
 const Moralis  = require('moralis/node');
 const app = express();
+
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+app.use(bodyParser.json());
 
 const serverUrl = "https://sawrxn3is56r.usemoralis.com:2053/server";
 const appId = "OyMwhQ8JhFzPgsKc8QZ1aPQWxZhtx3Bft87gqHG5";
@@ -41,6 +47,16 @@ app.get('/nftslistapi',async function (req,res) {
   const options = { chain: 'ETH', address: walletaddress };
   const data = await Moralis.Web3API.account.getNFTs(options);
   res.send(destructList(data))
+  
+})
+
+app.post('/listclicked',function (req,res) {
+
+  // console.log(req.body.list);
+  let listclicked = req.body.list
+  let filteredList = FilterByClickList(listclicked)
+  console.log(filteredList);
+  res.send(filteredList)
   
 })
 
