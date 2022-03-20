@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Tablehead from "./components/Table";
 import TableRow from "./components/TableRow";
 import TotalAssets from "./components/TotalAssets";
-import logo from "./resources/Treasury.jpg"
+import logo from "./resources/Treasury-modified.png"
 import right_arrow_icon from "./resources/arrow-right.png"
 import Address from "./components/address";
 import Nft_list from "./components/Nft_list";
@@ -48,13 +48,13 @@ function App() {
   },[])
 
   return (
-    <div className="py-[4rem] px-[8rem]">
-      <h1 className="text-center text-white xl:text-8xl lg:text-6xl title tracking-[4px] mb-[5rem] font-EB_Garamond">
+    <div className="py-[4rem] px-[8rem] tablet:px-[4rem]">
+      <h1 className="text-center text-white title tracking-[4px] mb-[5rem] tablet:mb-[2.5rem] font-EB_Garamond standard:text-[6.5rem] desktop:text-[5.5rem] laptop:text-[4rem] minilap:text-[2.7rem] tablet:text-[1.8rem] phone:text-[1.3rem]smphone:text-[1rem]">
         Bibliotheca <span className="text-[#8D795B] inline-block">DAO</span> <span className="inline-block">Treasury</span>
       </h1>
 
-      <div className="font-Inconsolata flex items-center justify-between mb-[5rem]">
-        <div className="text-white text-[1.5rem] font-light w-[60%] tracking-[2px]">
+      <div className="font-Inconsolata flex items-center justify-between mb-[5rem] tablet:flex-col-reverse">
+        <div className="text-white font-light w-[60%] tablet:w-[100%] tracking-[2px] standard:text-[1.5rem] desktop:text-[1.4rem] desktop:text-[1.3rem] minilap:text-[1rem] tablet:text-[1.2rem] phone:text-[0.4rem] smphone:text-[0.2rem]">
         The treasury funds managed by community members will be used to enable the DAO's mission, vision and goals.
 
  
@@ -65,7 +65,7 @@ function App() {
           <li>real-time dashboard of state of the treasury</li>
         </ul>
         </div>
-        <img className="w-[27rem] h-[25rem]" src={logo} alt="treasury image" />
+        <img className="standard:w-[27rem] standard:h-[25rem] desktop:w-[25rem] desktop:h-[23rem] laptopo:w-[23rem] laptop:h-[21rem] minilap:w-[19rem] minilap:h-[18rem] tablet:w-[15rem] tablet:h-[15rem] phone:w-[15rem] phone:h-[14rem] smphone:w-[13rem] smphone:h-[12rem] tablet:mb-[2rem]" src={logo} alt="treasury image" />
       </div>
 
       <Address address={walletaddress} />
@@ -81,7 +81,7 @@ function App() {
       </div>
 
       <div className="text-white">
-        <h1 className=" text-3xl font-EB_Garamond tracking-[2px] mb-[2rem]">NFT Assets</h1>
+        <h1 className="font-EB_Garamond tracking-[2px] mb-[2rem]">NFT Assets</h1>
         <div className="border-double border-4 border-[#8D795B] h-[80vh] grid grid-cols-[.55fr,2fr]">
           <div className="h-full border-solid border-r-2 border-[#8D795B] overflow-auto nft_asset">
 
