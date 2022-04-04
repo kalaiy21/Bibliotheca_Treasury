@@ -23,6 +23,7 @@ function App() {
   const[nfts,setnfts] = useState([]) // for nft img array of obj
   const[nftlist,setnftlist] = useState([])
   const[table,settable] = useState([]) // for table array of obj
+  const[totalassest,settotalassest] = useState()
 
   const[filtertab,setfiltertab] = useState(true)
 
@@ -51,9 +52,18 @@ function App() {
       // console.log(data); //logging table data
       settable(data)
     }
+
+    const gettotalassest = async() => {
+      const response = await fetch('/totalassest')
+      const data = await response.json()
+      // console.log(data);
+      settotalassest(data)
+    }
+
     gettable()
     getnft()
     getnftlist()
+    gettotalassest()
   },[])
 
   return (
@@ -82,7 +92,7 @@ function App() {
       {/* insert the table here */}
 
       <div className="mb-[4rem] border-double border-4 border-[#8D795B] py-[2rem] ">
-        <TotalAssets></TotalAssets>
+        <TotalAssets total = {totalassest}/>
         <div className="max-h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
         <Tablehead></Tablehead>
         {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}

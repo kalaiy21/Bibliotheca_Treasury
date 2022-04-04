@@ -1,7 +1,7 @@
 
 const express = require('express');
 const axios = require('axios');
-const TableDes = require('./tableDestructure');
+const {tableDestruct,TotalAssest} = require('./tableDestructure');
 const  bodyParser = require('body-parser');
 
 const {destruct,destructList,nftitems,FilterByClickList}  = require('./nftsdestruct');
@@ -55,7 +55,7 @@ app.post('/listclicked',function (req,res) {
   // console.log(req.body.list);
   let listclicked = req.body.list
   let filteredList = FilterByClickList(listclicked)
-  console.log(filteredList);
+  // console.log(filteredList);
   res.send(filteredList)
   
 })
@@ -71,11 +71,30 @@ app.get('/tableapi',async function (req,res) {
       .then(function (response) {
         const data = response.data
         // console.log(data)
-        res.send(TableDes(data))
+        res.send(tableDestruct(data))
       })
       .catch(function (error) {
         console.log(error);
       })
+})
+
+app.get('/totalassest',async function (req,res) {
+
+  // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+
+  const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
+  const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
+
+  axios.get(url)
+    .then(function (response) {
+      const data = response.data
+      // console.log(data)
+      result = tableDestruct(data)
+      res.send(TotalAssest(result))
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
 })
 
 app.listen(5000,function () {
