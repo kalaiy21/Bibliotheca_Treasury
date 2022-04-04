@@ -72,4 +72,23 @@ function tableDestruct(tableData){
   
 }
 
-module.exports=tableDestruct;
+function TotalAssest(data) {
+    const tablebalances = data
+    let sum = 0
+
+    tablebalances.forEach(balance =>{
+        value = balance.inUsd
+        // value = value.substring(1)
+        value = value.slice(1, -3)
+        value = value.replace(',','')
+
+        let val = parseFloat(value)
+        sum += val
+    })
+
+    // console.log(formatter.format(sum));
+    sum = formatter.format(sum)
+    return [sum]
+}
+
+module.exports = {tableDestruct,TotalAssest};
