@@ -16,11 +16,19 @@ const walletaddress = "0xef3155450bAA054ffE7950509CE2042613EE6586"
 
 
 
+
+
 function App() {
 
   const[nfts,setnfts] = useState([]) // for nft img array of obj
   const[nftlist,setnftlist] = useState([])
   const[table,settable] = useState([]) // for table array of obj
+
+  const[filtertab,setfiltertab] = useState(true)
+
+  function changefiltertab() {
+    setfiltertab(!filtertab)
+  }
 
   useEffect(() => {
     const getnft = async() => {
@@ -102,9 +110,9 @@ function App() {
           </div>
 
           {/* phone nft list  */}
-          <div className="h-full border-solid border-2 border-[#8D795B] overflow-auto nft_asset fixed top-0 left-0 bg-[#161619] w-[45%] hidden">
+          <div className={"h-full border-solid border-2 border-[#8D795B] overflow-auto nft_asset fixed top-0 left-0 bg-[#161619] minilap:w-[45%] " + (filtertab ? "hidden" : "inline-block")}>
             <div className="p-[1.5rem]">
-            <div className="flex justify-end px-[.5rem] py-[.3rem] mb-[1rem]"><img  className="w-[1.5rem] cursor-pointer" src={Close_icon} /></div>
+            <div className="flex justify-end px-[.5rem] py-[.3rem] mb-[1rem]"><img  className="w-[1.5rem] cursor-pointer" src={Close_icon} onClick={changefiltertab}/></div>
 
               {/* inside this div where nfs assets names will placed */}
 
@@ -121,7 +129,7 @@ function App() {
 
           <div className="border-solid border-b-[.5px] border-[#8D795B] bg-[#161619] px-[1rem] py-[1.5rem] laptop:hidden">
 
-            <a className="font-EB_Garamond px-[1.5rem] py-[.6rem] rounded-full border-solid border-[1px] border-[#8D795B]">Open Filter+</a>
+            <a className="font-EB_Garamond px-[1.5rem] py-[.6rem] rounded-full border-solid border-[1px] border-[#8D795B]"  onClick={changefiltertab}>Open Filter+</a>
 
           </div>
 
