@@ -71,7 +71,7 @@ app.get('/tableapi',async function (req,res) {
           style: 'currency',
           currency: 'USD',
         });
-        price = data.price.rate*12570000
+        price = data.price.rate*112500000
         price = formatter.format(price.toFixed(2))
         lords = {
           "name" : "LORDS",
