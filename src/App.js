@@ -69,7 +69,7 @@ function App() {
   return (
 
     <div className="py-[4rem] px-[8rem] tablet:px-[4rem] smphone:px-[2rem]">
-      <h1 className="text-center text-white title tracking-[4px] mb-[5rem] tablet:mb-[2.5rem] font-EB_Garamond standard:text-[6.5rem] desktop:text-[5.5rem] laptop:text-[4rem] minilap:text-[2.7rem] tablet:text-[1.8rem] phone:text-[1.5rem] smphone:text-[1.3rem]">
+      <h1 className="text-center text-white title tracking-[4px] mb-[5rem] tablet:mb-[2.5rem] font-EB_Garamond standard:text-[6.5rem] desktop:text-[5.5rem] laptop:text-[4rem] minilap:text-[2.7rem] tablet:text-[1.8rem] phone:text-[1.5rem] smphone:text-[1.3rem] smphone:mb-[2rem]">
 
         Bibliotheca <span className="text-[#8D795B] inline-block">DAO</span> <span className="inline-block">Treasury</span>
       </h1>
@@ -86,17 +86,19 @@ function App() {
           <li>real-time dashboard of state of the treasury</li>
         </ul>
         </div>
-        <img className="phone:p-2 standard:w-[27rem] standard:h-[25rem] desktop:w-[25rem] desktop:h-[23rem] laptopo:w-[23rem] laptop:h-[21rem] minilap:w-[19rem] minilap:h-[18rem] tablet:w-[15rem] tablet:h-[15rem] phone:w-[15rem] phone:h-[15rem] smphone:w-[13rem] smphone:h-[13rem] tablet:mt-[-2rem] phone:mt-[-4rem] smphone:mt-[-3rem]" src={logo} alt="treasury image" />
+        <img className="phone:p-2 standard:w-[27rem] standard:h-[25rem] desktop:w-[25rem] desktop:h-[23rem] laptopo:w-[23rem] laptop:h-[21rem] minilap:w-[19rem] minilap:h-[18rem] tablet:w-[15rem] tablet:h-[15rem] phone:w-[15rem] phone:h-[15rem] smphone:w-[13rem] smphone:h-[13rem] " src={logo} alt="treasury image" />
       </div>
 
       {/* <Address address={walletaddress} /> */}
       
       {/* insert the table here */}
 
-      <div className="mb-[4rem] border-double border-4 border-[#8D795B] py-[2rem] ">
+      <div className="mb-[4rem] border-double border-4 border-[#8D795B] py-[2rem]">
         <TotalAssets total = {totalassest}/>
-        <div className="max-h-[30rem] overflow-auto overflow-x-hidden scrolling max-w-full">
+        <div className="tablescroll max-h-[30rem] overflow-auto overflow-x-scroll scrolling max-w-full">
         <Tablehead></Tablehead>
+
+       
         {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}
         </div>
       </div>

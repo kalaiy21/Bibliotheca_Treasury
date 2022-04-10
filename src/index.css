@@ -34,7 +34,8 @@ body::-webkit-scrollbar-thumb {
 .nft_asset::-webkit-scrollbar-thumb{
   background-color: #303033;
   border-radius: 30px;
-}
+} 
+
 
 .nft_asset_imgs::-webkit-scrollbar{
   width: .5rem;
@@ -54,6 +55,7 @@ body::-webkit-scrollbar-thumb {
 /* Hari styling */
 
 
+@media only screen and (min-width:501px) {
   .scrolling::-webkit-scrollbar{
     width: .5rem;
   }
@@ -62,3 +64,13 @@ body::-webkit-scrollbar-thumb {
     background-color: #303033;
     border-radius: 30px;
   }
+  
+}
+
+
+  @media only screen and(max-width:500px){
+    .scrolling::-webkit-scrollbar{
+      width: 3px;
+    }
+  }
+    
