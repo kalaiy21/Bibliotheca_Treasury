@@ -95,10 +95,13 @@ function App() {
       <div className="mb-[4rem] border-double border-4 border-[#8D795B] py-[2rem]">
         <TotalAssets total = {totalassest}/>
         <div className="tablescroll max-h-[30rem] overflow-auto overflow-x-scroll scrolling max-w-full">
-        <Tablehead></Tablehead>
-
-       
-        {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}
+          <Tablehead></Tablehead>
+          {
+            table.forEach(t => {
+              console.log(t.name);
+            })
+          }
+          {table.map( (TableRowData,index) => <TableRow key={TableRowData.name} id={index+1} token={TableRowData.name} usdValue={TableRowData.inUsd} percentage={TableRowData.percent}tokenValue={TableRowData.balance}/>)}
         </div>
       </div>
 
