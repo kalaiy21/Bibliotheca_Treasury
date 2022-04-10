@@ -89,9 +89,8 @@ function App() {
         <img className="phone:p-2 standard:w-[27rem] standard:h-[25rem] desktop:w-[25rem] desktop:h-[23rem] laptopo:w-[23rem] laptop:h-[21rem] minilap:w-[19rem] minilap:h-[18rem] tablet:w-[15rem] tablet:h-[15rem] phone:w-[15rem] phone:h-[15rem] smphone:w-[13rem] smphone:h-[13rem] " src={logo} alt="treasury image" />
       </div>
 
-      {/* <Address address={walletaddress} /> */}
+      <Address address={walletaddress} />
       
-      {/* insert the table here */}
 
       <div className="mb-[4rem] border-double border-4 border-[#8D795B] py-[2rem]">
         <TotalAssets total = {totalassest}/>
@@ -110,7 +109,7 @@ function App() {
 
             <div className="py-[2.5rem] px-[1.5rem]">
 
-              {/* inside this div where nfs assets names will placed */}
+              {/* nfts assets names */}
 
               <div className="flex justify-between items-center mb-[.1rem] hover:bg-[#202023] px-[.5rem] py-[.3rem] hover:cursor-pointer">
                 <p className="font-Inconsolata text-lg">All</p> 
@@ -128,7 +127,7 @@ function App() {
             <div className="p-[1.5rem]">
             <div className="flex justify-end px-[.5rem] py-[.3rem] mb-[1rem]"><img  className="w-[1.5rem] cursor-pointer" src={Close_icon} onClick={changefiltertab}/></div>
 
-              {/* inside this div where nfs assets names will placed */}
+              {/* nfts assets names*/}
 
               <div className="flex justify-between items-center mb-[.1rem] hover:bg-[#202023] px-[.5rem] py-[.3rem] hover:cursor-pointer">
                 <p className="font-Inconsolata text-lg">All</p> 
@@ -150,7 +149,7 @@ function App() {
 
           <div className="h-full p-[2rem] nft_asset_imgs smphone:flex flex-wrap justify-center laptop:grid grid-cols-4 overflow-y-scroll gap-[2rem]">
 
-            {/* inside this div where nfs assets img will placed */}
+            {/*nfs assets img*/}
 
             {nfts.map(nft =><Nft_img key={nft.tokenid} url={nft.imgurl} name={nft.nftname} />)}
 

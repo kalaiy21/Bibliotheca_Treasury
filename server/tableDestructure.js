@@ -15,10 +15,6 @@ function tableDestruct(tableData){
     const ethPrice=tableData.ETH.price.rate;
     const ethBalance=tableData.ETH.balance;
     const ethInUSD=ethPrice*ethBalance; 
-    // let ethInusd = new Intl.NumberFormat('en-US');
-    // let output = ethInusd.format(ethInusd);
-    // ethInusd=output.format(ethInusd);
-    //Remaining Tokens
 
     ({address,ETH,countTxs,tokens} = tableData);
     tokArr=[]
@@ -78,7 +74,6 @@ function TotalAssest(data) {
 
     tablebalances.forEach(balance =>{
         value = balance.inUsd
-        // value = value.substring(1)
         value = value.slice(1, -3)
         value = value.replace(',','')
 
@@ -86,7 +81,6 @@ function TotalAssest(data) {
         sum += val
     })
 
-    // console.log(formatter.format(sum));
     sum = formatter.format(sum)
     return [sum]
 }

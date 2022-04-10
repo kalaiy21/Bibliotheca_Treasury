@@ -17,6 +17,3 @@ function TableRow(props){
 export default TableRow;
 
 
-// line no8: left align changed on 13/03/2022 19:45
-
-// line no 8,9,10 :right align

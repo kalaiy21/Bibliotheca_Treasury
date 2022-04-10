@@ -8,9 +8,7 @@ const {destruct,destructList,nftitems,FilterByClickList}  = require('./nftsdestr
 const Moralis  = require('moralis/node');
 const app = express();
 
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
+
 app.use(bodyParser.json());
 
 const serverUrl = "https://sawrxn3is56r.usemoralis.com:2053/server";
@@ -42,8 +40,6 @@ app.get('/nftsapi',async function (req,res) {
 
 app.get('/nftslistapi',async function (req,res) {
 
-  // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
-
   const options = { chain: 'ETH', address: walletaddress };
   const data = await Moralis.Web3API.account.getNFTs(options);
   res.send(destructList(data))
@@ -52,17 +48,15 @@ app.get('/nftslistapi',async function (req,res) {
 
 app.post('/listclicked',function (req,res) {
 
-  // console.log(req.body.list);
   let listclicked = req.body.list
   let filteredList = FilterByClickList(listclicked)
-  // console.log(filteredList);
   res.send(filteredList)
   
 })
 
 app.get('/tableapi',async function (req,res) {
 
-    // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
+
 
     const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
     const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
@@ -70,7 +64,6 @@ app.get('/tableapi',async function (req,res) {
     axios.get(url)
       .then(function (response) {
         const data = response.data
-        // console.log(data)
         res.send(tableDestruct(data))
       })
       .catch(function (error) {
@@ -80,7 +73,6 @@ app.get('/tableapi',async function (req,res) {
 
 app.get('/totalassest',async function (req,res) {
 
-  // const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'
 
   const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
   const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
@@ -88,7 +80,6 @@ app.get('/totalassest',async function (req,res) {
   axios.get(url)
     .then(function (response) {
       const data = response.data
-      // console.log(data)
       result = tableDestruct(data)
       res.send(TotalAssest(result))
     })
