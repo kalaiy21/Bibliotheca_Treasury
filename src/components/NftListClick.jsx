@@ -12,7 +12,7 @@ async function NftListClick(clickedList) {
     })
     const data = await response.json()
     
-    console.log(data);
+    console.log(data); //this data need to be updated in the app setnft
     
 }
 
