@@ -46,7 +46,7 @@ function tableDestruct(tableData){
         tok={}
         tok.name=tokenName;
 
-        tok.balance=formatter.format(Math.round(Balance).toFixed(2))
+        tok.balance=formatter.format(Math.round(Balance).toFixed(2)).substring(1);
         tok.inUsd=formatter.format(Math.round(inUSD).toFixed(2))
         tokArr.push(tok)
 
@@ -55,7 +55,7 @@ function tableDestruct(tableData){
     });
     tokEth={}
     tokEth.name="ETH"
-    tokEth.balance=formatter.format(Math.round(ethBalance).toFixed(2))
+    tokEth.balance=formatter.format(Math.round(ethBalance).toFixed(2)).substring(1);
     tokEth.inUsd=formatter.format(Math.round(ethInUSD).toFixed(2))
     const ethPercentage=Math.round((ethInUSD/total)*100).toFixed(2);
     tokEth.percent=ethPercentage
