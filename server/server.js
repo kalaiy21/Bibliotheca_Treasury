@@ -61,10 +61,46 @@ app.get('/tableapi',async function (req,res) {
     const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
     const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
+    
+    // this will add temp lords data to table if not in the wallet
+    let lords = {} 
+    axios.get('https://api.ethplorer.io/getTokenInfo/0x686f2404e77Ab0d9070a46cdfb0B7feCDD2318b0?apiKey=EK-pYffx-aL5xsQC-o7WsN')
+      .then(function (response) {
+        const data = response.data
+        var formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+        price = data.price.rate*12570000
+        price = formatter.format(price.toFixed(2))
+        lords = {
+          "name" : "LORDS",
+          "balance" : "0.00",
+          "inUsd" : price,
+          "percent" : "0.00"
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+    })
+    
+    function chklord(result) {
+      result.forEach(element => {
+        let name = element.name
+        if (name === "LORDS"){
+          return true
+        }
+      });
+      return false
+    }
+    //------------------
+
     axios.get(url)
       .then(function (response) {
         const data = response.data
-        res.send(tableDestruct(data))
+        let result = tableDestruct(data)
+        chklord(result) ? null : result.unshift(lords)
+        res.send(result)
       })
       .catch(function (error) {
         console.log(error);
