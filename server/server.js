@@ -54,12 +54,13 @@ app.post('/listclicked',function (req,res) {
   
 })
 
+ 
 app.get('/tableapi',async function (req,res) {
 
 
 
     const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
-    const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
+    const url = `https://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
     
     // this will add temp lords data to table if not in the wallet
@@ -71,11 +72,11 @@ app.get('/tableapi',async function (req,res) {
           style: 'currency',
           currency: 'USD',
         });
-        price = data.price.rate*112500000
+        price = data.price.rate*112500500
         price = formatter.format(price.toFixed(2))
         lords = {
           "name" : "LORDS",
-          "balance" : "0.00",
+          "balance" : "112,500,500.00",
           "inUsd" : price,
           "percent" : "0.00"
         }
@@ -84,6 +85,7 @@ app.get('/tableapi',async function (req,res) {
         console.log(error);
     })
     
+    // console.log(LordsInUSD);
     function chklord(result) {
       result.forEach(element => {
         let name = element.name
@@ -111,7 +113,7 @@ app.get('/totalassest',async function (req,res) {
 
 
   const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
-  const url = `http://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
+  const url = `https://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
   axios.get(url)
     .then(function (response) {
