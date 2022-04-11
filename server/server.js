@@ -86,9 +86,7 @@ app.get('/tableapi',async function (req,res) {
       .catch(function (error) {
         console.log(error);
     })
-    console.log(lords);
     
-    // console.log(LordsInUSD);
     function chklord(result) {
       result.forEach(element => {
         let name = element.name
