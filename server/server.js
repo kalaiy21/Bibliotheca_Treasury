@@ -81,9 +81,12 @@ app.get('/tableapi',async function (req,res) {
           "percent" : "0.00"
         }
       })
+
+
       .catch(function (error) {
         console.log(error);
     })
+    console.log(lords);
     
     // console.log(LordsInUSD);
     function chklord(result) {
