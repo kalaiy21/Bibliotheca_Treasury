@@ -1,5 +1,5 @@
 1. need to do nft filter. did the backend filter the response is in nftlistclick it need to update the state in APP.js.
 
-2. need to do table alignment of assest.
+2. need to do table alignment of assest. (done)
 
-3. do env var of wallet address and server api keys.
+3. do env var of wallet address and server api keys. (done)
