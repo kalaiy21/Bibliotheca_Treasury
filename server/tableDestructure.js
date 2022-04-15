@@ -80,8 +80,6 @@ function TotalAssest(data) {
         let val = parseFloat(value)
         sum += val
     })
-    // sum=sum+price;//by hari
-    sum = formatter.format(sum)
     return [sum]
 }
 

@@ -5,6 +5,7 @@ const {tableDestruct,TotalAssest} = require('./tableDestructure');
 const  bodyParser = require('body-parser');
 
 const {destruct,destructList,nftitems,FilterByClickList}  = require('./nftsdestruct');
+const {lords} = require('./lords');
 const Moralis  = require('moralis/node');
 const app = express();
 
@@ -64,29 +65,8 @@ app.get('/tableapi',async function (req,res) {
 
     
     // this will add temp lords data to table if not in the wallet
-    let lords = {} 
-    axios.get('https://api.ethplorer.io/getTokenInfo/0x686f2404e77Ab0d9070a46cdfb0B7feCDD2318b0?apiKey=EK-pYffx-aL5xsQC-o7WsN')
-      .then(function (response) {
-        const data = response.data
-        var formatter = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        });
-        price = data.price.rate*112500500
-        price = formatter.format(price.toFixed(2))
-        lords = {
-          "name" : "LORDS",
-          "balance" : "112,500,500.00",
-          "inUsd" : price,
-          "percent" : "0.00"
-        }
-      })
+    const lordsdata = await lords()
 
-
-      .catch(function (error) {
-        console.log(error);
-    })
-    
     function chklord(result) {
       result.forEach(element => {
         let name = element.name
@@ -97,12 +77,11 @@ app.get('/tableapi',async function (req,res) {
       return false
     }
     //------------------
-
     axios.get(url)
       .then(function (response) {
         const data = response.data
         let result = tableDestruct(data)
-        chklord(result) ? null : result.unshift(lords)
+        chklord(result) ? null : result.unshift(lordsdata)
         res.send(result)
       })
       .catch(function (error) {
@@ -116,11 +95,27 @@ app.get('/totalassest',async function (req,res) {
   const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
   const url = `https://api.ethplorer.io/getAddressInfo/${walletaddress}?apiKey=${apikey}`
 
+  const lordsdata = await lords()
+  let lordsprice = lordsdata.inUsd
+  lordsprice = lordsprice.slice(1,-3)
+  lordsprice= lordsprice.replace(',','')
+  lordsprice= lordsprice.replace(',','')
+  lordsprice = parseInt(lordsprice)
+  //console.log(lordsprice);
+
+
   axios.get(url)
     .then(function (response) {
       const data = response.data
       result = tableDestruct(data)
-      res.send(TotalAssest(result))
+      let total = TotalAssest(result)
+      total = total[0]+lordsprice
+      var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+      total = formatter.format(total)
+      res.send([total])
     })
     .catch(function (error) {
       console.log(error);
