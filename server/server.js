@@ -1,4 +1,6 @@
 
+
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const {tableDestruct,TotalAssest} = require('./tableDestructure');
@@ -12,13 +14,13 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const serverUrl = "https://sawrxn3is56r.usemoralis.com:2053/server"; //moralise serverUrl need to put as env
-const appId = "OyMwhQ8JhFzPgsKc8QZ1aPQWxZhtx3Bft87gqHG5"; ////moralise appId need to put as env
+const serverUrl = process.env.SERVERURL; //moralise serverUrl need to put as env
+const appId =process.env.APPID; ////moralise appId need to put as env
 Moralis.start({ serverUrl, appId });
 
 
-const walletaddress = '0xef3155450baa054ffe7950509ce2042613ee6586'  // need to put as env
-const apikey = 'EK-pYffx-aL5xsQC-o7WsN'  // need to put as env
+const walletaddress = process.env.WALLETADDRESS  // need to put as env
+const apikey = process.env.APIKEY
 
 app.get('/nftsapi',async function (req,res) {
 
