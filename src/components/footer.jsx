@@ -12,28 +12,32 @@ function Footer() {
                 <div className="font-light text-white font-Inconsolata py-[2rem] desktop:px-[3rem] laptop:px-[2rem] smphone:px-[1.5rem]">
                     <h3 className="mb-[1.5rem] text-[1.2rem]">WEBSITES</h3>
                     <ul className="text-[1.1rem]">
-                        <li className="hover:underline underline-offset-1"><a href="https://atlas.bibliothecadao.xyz/">Bibliotheca DAO</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://realms.briq.construction/">Briqs</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://testnet.playoasis.xyz/">Play Oasis</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://starkware.co/starknet/">StarkWare</a></li>
+
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://atlas.bibliothecadao.xyz/">Bibliotheca DAO</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://realms.briq.construction/">Briqs</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://testnet.playoasis.xyz/">Play Oasis</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://starkware.co/starknet/">StarkWare</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://atlas.bibliothecadao.xyz/">Atlas</a></li>
+
                     </ul>
                 </div>
                 <div className="font-light text-white font-Inconsolata py-[2rem] desktop:px-[3rem] laptop:px-[2rem] smphone:px-[1.5rem]">
-                    <h3 className="mb-[1.5rem] text-[1.2rem]">WEBSITES</h3>
+                    <h3 className="mb-[1.5rem] text-[1.2rem]">DISCORDS</h3>
                     <ul className="text-[1.1rem]">
-                        <li className="hover:underline underline-offset-1"><a href="https://atlas.bibliothecadao.xyz/">Bibliotheca DAO</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://realms.briq.construction/">Briqs</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://testnet.playoasis.xyz/">Play Oasis</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://starkware.co/starknet/">StarkWare</a></li>
+                        
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://discord.com/invite/uQnjZhZPfu">Bibliotheca DAO</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://discord.com/invite/7X9gJQ3ed9">Briqs</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://discord.com/invite/ZGRxkeYKNq">Play Oasis</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://discord.com/invite/XzvgKTTptb">StarkWare</a></li>
                     </ul>
                 </div>
                 <div className="font-light text-white font-Inconsolata py-[2rem] desktop:px-[3rem] laptop:px-[2rem] smphone:px-[1.5rem]">
-                    <h3 className="mb-[1.5rem] text-[1.2rem]">WEBSITES</h3>
+                    <h3 className="mb-[1.5rem] text-[1.2rem]">TWITTERS</h3>
                     <ul className="text-[1.1rem]">
-                        <li className="hover:underline underline-offset-1"><a href="https://atlas.bibliothecadao.xyz/">Bibliotheca DAO</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://realms.briq.construction/">Briqs</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://testnet.playoasis.xyz/">Play Oasis</a></li>
-                        <li className="hover:underline underline-offset-1"><a href="https://starkware.co/starknet/">StarkWare</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://twitter.com/LootRealms">Bibliotheca DAO</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://twitter.com/briqNFT">Briqs</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://twitter.com/PlayOasisXYZ">Play Oasis</a></li>
+                        <li className="py-[0.2rem]"><a className="hover:underline underline-offset-1"href="https://twitter.com/StarkWareLtd">StarkWare</a></li>
                     </ul>
                 </div>
             </div>
